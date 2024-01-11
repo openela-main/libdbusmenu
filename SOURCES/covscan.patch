@@ -1,0 +1,11 @@
+diff -up libdbusmenu-16.04.0/libdbusmenu-16.04.0/libdbusmenu-glib/menuitem.c.covscan libdbusmenu-16.04.0/libdbusmenu-16.04.0/libdbusmenu-glib/menuitem.c
+--- libdbusmenu-16.04.0/libdbusmenu-16.04.0/libdbusmenu-glib/menuitem.c.covscan	2016-02-27 19:58:43.000000000 +0100
++++ libdbusmenu-16.04.0/libdbusmenu-16.04.0/libdbusmenu-glib/menuitem.c	2018-10-09 12:56:22.308956723 +0200
+@@ -1753,6 +1753,7 @@ dbusmenu_menuitem_handle_event (Dbusmenu
+ 	g_debug("Menuitem %d (%s) is getting event '%s'", ID(mi), LABEL(mi), name);
+ 	#endif
+ 	DbusmenuMenuitemClass * class = DBUSMENU_MENUITEM_GET_CLASS(mi);
++	g_return_if_fail(DBUSMENU_IS_MENUITEM_CLASS(class));
+ 
+ 	gboolean handled = FALSE;
+ 	if (variant == NULL) {
